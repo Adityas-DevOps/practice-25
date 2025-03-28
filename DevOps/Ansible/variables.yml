@@ -1,0 +1,3 @@
+---
+- name: running the vars
+  hosts: localhost
