@@ -1,0 +1,21 @@
+---
+- name: Install and run Nginx on Windows Server 2019
+  hosts: localhost
+  tasks:
+    - name: Install Chocolatey
+      win_chocolatey:
+        name: chocolatey
+        state: present
+
+    - name: Install Nginx
+      win_chocolatey_facts:
+        name: nginx
+        state: present
+
+    - name: Start Nginx service
+      win_service:
+        name: nginx
+        start_mode: auto
+        state: started
+
+    
